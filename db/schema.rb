@@ -10,9 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_04_21_235900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "category_types", force: :cascade do |t|
+    t.string "name"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_category_types_on_category_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.bigint "size_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "category_type_id", null: false
+    t.integer "quantity"
+    t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["category_type_id"], name: "index_products_on_category_type_id"
+    t.index ["size_id"], name: "index_products_on_size_id"
+  end
+
+  create_table "sizes", force: :cascade do |t|
+    t.string "name"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_sizes_on_category_id"
+  end
+
+  add_foreign_key "category_types", "categories"
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "category_types"
+  add_foreign_key "products", "sizes"
+  add_foreign_key "sizes", "categories"
 end
