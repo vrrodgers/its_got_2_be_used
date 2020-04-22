@@ -14,7 +14,7 @@ gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
-
+gem 'rails_admin', '~> 2.0', '>= 2.0.2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
