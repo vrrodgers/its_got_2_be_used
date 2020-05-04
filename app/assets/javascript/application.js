@@ -19,6 +19,6 @@
 //= require_tree .
 //= require popper
 //= require bootstrap
-//= required custom.js
-//= required plugin.js
-//= required charts.js
+//= require plugins
+//= require main
+//= require ajax-mail
