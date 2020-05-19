@@ -17,8 +17,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require popper
-//= require bootstrap
+//= require popper.min
 //= require plugins
 //= require main
 //= require ajax-mail
+//= require bootstrap.min
+//= require modernizr-2.8.3.min
+//= require jquery-v3.4.1.min
